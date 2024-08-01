@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Catalogue</title>
+    <link rel="shortcut icon" href="./Anuj Tiles.svg" type="image/svg+xml">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f; /* Dark background color */
+            color: #ffffff; /* White text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px; /* Added padding for spacing */
+            background-color: #333; /* Darker header background color */
+        }
+
+        header .logo {
+            flex: 0 0 auto; /* Prevent logo from growing */
+        }
+
+        header .logo img {
+            max-width: 80px; /* Adjust the width of your logo */
+            height: auto;
+        }
+
+        header h1 {
+            margin: 0;
+            flex: 1; /* Take remaining space */
+            text-align: center; /* Center align the title */
+        }
+
+        .back-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            outline: none;
+        }
+
+        .back-button:hover {
+            background-color: #555; /* Darken on hover */
+            transform: translateY(-2px); /* Lift button slightly on hover */
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            animation: slide-in 1s ease-out; /* Animation for sliding in */
+        }
+
+        
+        .sub-images {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .sub-image {
+            width: calc(33% - 20px); /* Adjust width for three columns with spacing */
+            margin-bottom: 20px; /* Added space between items */
+            height: 300px; /* Adjust height as needed */
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            border-radius: 10px;
+            animation: slide-in 1s ease-out; /* Animation for sliding in */
+        }
+
+        .sub-image:hover {
+            transform: scale(1.1); /* Scale up image on hover */
+        }
+
+        .sub-image .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+            padding: 10px;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease;
+            opacity: 0; /* Hidden by default */
+        }
+
+        .sub-image:hover .overlay {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        #image1 {
+            background-image: url('./assets/images/anuj\ cat.jpg'); /* Replace with your sub-image 1 URL */
+        }
+
+        #image2 {
+            background-image: url('./assets/images/healtware\ cat.jpg'); /* Replace with your sub-image 2 URL */
+        }
+
+        #image3 {
+            background-image: url('./assets/images/niagara\ cat.jpg'); /* Replace with your sub-image 3 URL */
+        }
+
+        .overlay h3 {
+            font-size: 18px;
+            margin: 0 0 5px;
+            color: #ffffff; /* White text color */
+        }
+
+        .overlay p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+            color: #ffffff; /* White text color */
+        }
+
+        /* Styling for footer */
+        #colophon {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            clear: both; /* Ensure footer clears any floats */
+        }
+
+        #colophon ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #colophon ul li {
+            margin-bottom: 10px;
+        }
+
+        #colophon a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 1024px) {
+            .sub-image {
+                width: calc(50% - 20px); /* Two columns with spacing on medium screens */
+                height: 250px; /* Adjust height */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sub-image {
+                width: 100%; /* Full width on small screens */
+                height: 200px; /* Adjust height */
+            }
+        }
+
+        
+        /* CUSTOM CUROR */
+       
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px; /* Cursor width */
+  height: 25px; /* Cursor height */
+  background-color: #ffffff; /* Solid color for the cursor */
+  border-radius: 50%; /* Circle shape */
+  pointer-events: none; /* Ensure cursor doesn't interfere with other elements */
+  z-index: 9999; /* Ensure cursor is above all other content */
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition for zoom effect */
+  transform: translate(-50%, -50%); /* Center cursor based on mouse position */
+  transform-origin: center; /* Center the origin of the transform */
+  mix-blend-mode: difference; /* Blend mode to make the cursor transparent in the center */
+}
+
+.hover-effect {
+  width: 80px; /* Enlarged width on hover */
+  height: 80px; /* Enlarged height on hover */
+}
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Anuj Tiles.svg" alt="Logo"> <!-- Replace with your logo image URL and alt text -->
+        </div>
+        <h1>CATALOGUE</h1>
+        <a href="index.html" class="back-button">Back</a> <!-- Back button added here -->
+    </header>
+    <!-- Banner Image -->
+    <img src="./assets/images/catalogue-banner.jpg" alt="Banner Image" class="banner">
+    
+    <main>
+        <section class="banner">
+            <!-- Large Banner Image -->
+        </section>
+
+        <section class="sub-images">
+            <!-- Wrap each sub-image with an anchor tag -->
+            <a href="#" class="sub-image" id="image1">
+                <div class="overlay">
+                    <h3>ANUJ TILES</h3>
+                    <p>We produce good quality tiles that last forever.</p>
+                </div>
+            </a>
+
+            <a href="#" class="sub-image" id="image2">
+                <div class="overlay">
+                    <h3>HEALTHWARE</h3>
+                    <p>We provide whole bathroom solutions that can infuse any bathroom with individuality.</p>
+                </div>
+            </a>
+
+            <a href="#" class="sub-image" id="image3">
+                <div class="overlay">
+                    <h3>NIAGARA</h3>
+                    <p>We provide a wide variety of products, including taps, showers, shower accessories, handshowers, and hand dryer.</p>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <!------------ DONE --------------- FOOTER -------------- DONE ------------>
+
+   <!-- 
+      - #FOOTER
+   -->
+      
+<!-- FOOTER -->
+<div id="contact">
+  <footer id="colophon" role="contentinfo" style="background-color: #333; color: #fff; padding: 20px 0;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; padding: 0 15px;">
+          <div style="width: 25%; max-width: 300px;">
+            <h2 class="footer-heading">PRODUCTS</h2>
+            <ul class="footer-list">
+              <li><a href="https://anujtiles.com/healthwareniagara/" style="text-decoration: none; color: #fff;">Anuj Tiles</a></li>
+              <li><a href="https://anujtiles.com/healthwareniagara/" style="text-decoration: none; color: #fff;">Healthware & Niagara</a></li>
+              <li><a href="https://anujtiles.com/healthware/" style="text-decoration: none; color: #fff;">Healthware</a></li>
+              <li><a href="https://anujtiles.com/niagara/" style="text-decoration: none; color: #fff;">Niagara</a></li>
+              <li><a href="https://anujtiles.com/catalogue/" style="text-decoration: none; color: #fff;">Catalogues</a></li>
+            </ul>
+          </div>
+          <div style="width: 25%; max-width: 300px;">
+            <h2 class="footer-heading">ABOUT US</h2>
+            <ul class="footer-list">
+              <li><a href="https://anujtiles.com/about-us/" style="text-decoration: none; color: #fff;">Company Overview</a></li>
+              <li><a href="#" style="text-decoration: none; color: #fff;">History</a></li>
+              <li><a href="#" style="text-decoration: none; color: #fff;">Our Brands</a></li>
+              <li><a href="#" style="text-decoration: none; color: #fff;">Certificates</a></li>
+            </ul>
+          </div>
+          <div style="width: 25%; max-width: 300px;">
+            <h2 class="footer-heading">ACTIVITIES</h2>
+            <ul class="footer-list">
+              <li><a href="#" style="text-decoration: none; color: #fff;">Blog</a></li>
+              <li><a href="https://anujtiles.com/contact-us/#showroom" style="text-decoration: none; color: #fff;">Show Rooms</a></li>
+              <li><a href="#" style="text-decoration: none; color: #fff;">Innovation</a></li>
+            </ul>
+          </div>
+          <div style="width: 25%; max-width: 300px;">
+            <h2 class="footer-heading">CONTACT</h2>
+            <ul class="footer-list">
+              <li><a href="https://anujtiles.com/job/" style="text-decoration: none; color: #fff;">Careers</a></li>
+              <li><a href="#" style="text-decoration: none; color: #fff;">Social Responsibility</a></li>
+              <li><a href="https://anujtiles.com/contact-us/" style="text-decoration: none; color: #fff;">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Social Media Icons using Font Awesome -->
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
+          <a href="https://www.youtube.com/@AnujTiles_AravindCeramics" target="_blank" style="text-decoration: none; color: #fff; margin: 0 8px;">
+            <i class="fab fa-youtube" style="font-size: 24px; color: #f73c3c;"></i>
+          </a>
+          <a href="https://www.instagram.com/anujtiles/" target="_blank" style="text-decoration: none; color: #fff; margin: 0 8px;">
+            <i class="fab fa-instagram" style="font-size: 24px; color: #ff69b4;"></i>
+          </a>
+          <a href="https://www.facebook.com/AravindCeramicPvtLtd" target="_blank" style="text-decoration: none; color: #fff; margin: 0 8px;">
+            <i class="fab fa-facebook" style="font-size: 24px; color: #3b5998;"></i>
+          </a>
+          <a href="https://wa.me/+919551698878" target="_blank" style="text-decoration: none; color: #fff; margin: 0 8px;">
+            <i class="fab fa-whatsapp" style="font-size: 24px; color: #25d366;"></i>
+          </a>
+          <a href="https://twitter.com/tiles_anuj" target="_blank" style="text-decoration: none; color: #fff; margin: 0 8px;">
+            <i class="fab fa-twitter" style="font-size: 24px; color: #1da1f2;"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Copyright Notice -->
+      <div style="text-align: center; margin-top: 20px; font-size: 12px;">
+        <p>&copy; 2024 Anuj Tiles | Powered by Anuj Tiles</p>
+      </div>
+    </div>
+
+    <!-- Inline CSS for hover effect -->
+    <style>
+      .fab:hover {
+        opacity: 0.7; /* Optional: Reduce opacity on hover */
+      }
+      
+      /* Media Queries for responsive design */
+      @media (max-width: 768px) {
+        footer {
+          padding: 20px 0; /* Adjust padding for smaller screens */
+        }
+
+        .footer-heading {
+          font-size: 18px; /* Adjust font size for smaller screens */
+        }
+
+        .footer-list li {
+          margin-bottom: 8px; /* Adjust spacing for smaller screens */
+        }
+
+        .footer-list a {
+          font-size: 14px; /* Adjust font size for smaller screens */
+        }
+
+        .fab {
+          font-size: 20px; /* Adjust icon size for smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        footer {
+          padding: 15px 0; /* Further adjust padding for very small screens */
+        }
+
+        .footer-heading {
+          font-size: 16px; /* Further adjust font size for very small screens */
+        }
+
+        .footer-list li {
+          margin-bottom: 6px; /* Further adjust spacing for very small screens */
+        }
+
+        .footer-list a {
+          font-size: 12px; /* Further adjust font size for very small screens */
+        }
+
+        .fab {
+          font-size: 16px; /* Further adjust icon size for very small screens */
+        }
+      }
+    </style>
+  </footer>
+</div>
+
+
+   <!-- CUSTOM CURSOR -->
+   <div class="custom-cursor" data-cursor></div>
+
+    <!-- JavaScript for page animation -->
+    <script>
+        // Wait for the window to load completely
+        window.addEventListener('load', function () {
+            // Add a class to body to trigger animation
+            document.body.classList.add('loaded');
+        });
+    </script>
+
+    <!-- CUSTOM CURSOR -->
+    <script>
+        const cursor = document.querySelector(".custom-cursor");
+   const hoverElements = document.querySelectorAll("a, button");
+   
+   document.addEventListener("mousemove", function (e) {
+     cursor.style.top = e.clientY + "px";
+     cursor.style.left = e.clientX + "px";
+   });
+   
+   hoverElements.forEach((element) => {
+     element.addEventListener("mouseenter", () => {
+       cursor.classList.add("hover-effect");
+     });
+     element.addEventListener("mouseleave", () => {
+       cursor.classList.remove("hover-effect");
+     });
+   });
+   
+   
+   
+   
+         
+         
+         
+         </script>
+
+    
+</body>
+</html>

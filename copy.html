@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>.animepage {
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3vw 3vw;
+    position: relative;
+}
+
+.para {
+    font-size: 1.4vw;
+    width: 15vw;
+    height: 10vw;
+    margin-top: -35%;
+    background-color: #ffffff;
+}
+
+.card {
+    font-family: opop;
+    width: 25vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3vw 3vw;
+    position: relative
+}
+
+.wrapper {
+    width: 100%;
+    position: absolute;
+    z-index: 101;
+    transition: all 0.5s;
+}
+
+.wrapper .imgbg {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgb(0, 0, 0);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    filter: blur(3px);
+    cursor: pointer;
+
+}
+
+.wrapper::after,
+.wrapper::before {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background: linear-gradient(to top,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgb(12, 13, 19) 97%,
+
+        );
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    background: linear-gradient(to top,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgb(12, 13, 19) 97%,
+
+        );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+    opacity: 1;
+
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.title {
+    z-index: 101;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    translate: 0px -15px;
+    transition: transform 0.5s;
+}
+
+.card:hover .title {
+    transform: translate3d(0%, -150%, 100px);
+    color: #fff;
+    text-shadow: 0 3px 2px #000;
+}
+
+
+.imgCHAR {
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: 101;
+
+}
+
+.card:hover .imgCHAR {
+    opacity: 1;
+    transform: translate3d(0%, -48%, 100px);
+}
+
+
+/* Next Style */
+.page3 {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 8vw 3vw;
+
+}
+
+.page3-top {
+    text-align: center;
+}
+
+.page3-top h4 {
+    font-size: 1.4vw;
+    margin-bottom: 1vw;
+    font-weight: 500;
+    color: #646464;
+
+}
+
+.page3-top h4 span {
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    font-size: .6vw;
+    padding: 4px 8px;
+    border-radius: 10px;
+
+}
+
+.page3-top h2 {
+    font-size: 4.5vw;
+    font-weight: 200;
+    /* border-bottom: 1px solid #000; */
+    text-decoration: gray underline;
+    text-decoration-thickness: 2px;
+
+}
+
+.page3-elements {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 86.5vh;
+    margin-top: 8vw;
+    /* background-color: #ff592f; */
+}
+
+.page3-elements .box {
+    width: 32.8%;
+    height: 100%;
+    position: relative;
+    /* background-color: aqua; */
+}
+
+.page3-elements .box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page3-elements .box img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    transition: all linear .8s;
+}
+
+.page3-elements .box:hover img {
+    opacity: 0;
+}
+
+
+/* ------------------------footer css ----------------------------------- */
+
+
+
+
+
+.footer {
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icon,
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+    list-style: none;
+}
+
+.social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-icon__link:hover {
+    transform: translateY(-10px);
+}
+
+.menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+}
+
+.menu__link:hover {
+    opacity: 1;
+}
+
+.footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png");
+    background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: -1000px;
+    }
+
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+</style>
+<body>
+	<div class="animepage">
+		
+		<div class="card">
+			<div class="wrapper">
+				<img src="./Tiles Image/bath.jpg" alt="" class="imgbg">
+			</div>
+
+			<p class="title"></p>
+			<!-- /png img 1 -->
+			<img src="./Tiles Image/T10.jpg" class="imgCHAR" alt="" style="height: 550px; width:650px;">
+		</div>
+		<div class="card">
+			<div class="wrapper">
+				<img style="z-index: 10;" src="./Tiles Image/wall.jpg" alt="" class="imgbg">
+			</div>
+			<p style=" z-index: 0;font-size: 20px;color: rgb(0, 0, 0);text-shadow: none;" class="title">
+				The environment refers to the 🌱surroundings in which life exists on earth.🌿 Components like
+				animals,
+				humans, sunlight,🪴 water, trees, and air make up the environment.🌲They are the earth's living and
+				🌴 non-living components.
+				Living organisms include tree 🍃,animals. take care of environment.</p>
+
+
+			
+			<!-- png image 2 -->
+
+		</div>
+		<div class="card">
+			<div class="wrapper">
+				<img style="z-index: 10;" src="./Tiles Image/wall.jpg" alt="" class="imgbg">
+			</div>
+			<p style=" z-index: 0;font-size: 20px;color: rgb(0, 0, 0);text-shadow: none;" class="title">
+				The environment refers to the 🌱surroundings in which life exists on earth.🌿 Components like
+				animals,
+				humans, sunlight,🪴 water, trees, and air make up the environment.🌲They are the earth's living and
+				🌴 non-living components.
+				Living organisms include tree 🍃,animals. take care of environment.</p>
+
+
+		</div>
+	</div>
+
+	<!-- 2nd Video play -->
+	<div class="animepage">
+		
+		<div class="card">
+			<div class="wrapper">
+				<img src="./Tiles Image/bath.jpg" alt="" class="imgbg">
+			</div>
+
+			<p class="title"></p>
+			<!-- /png img 1 -->
+			<img src="./Tiles Image/T10.jpg" class="imgCHAR" alt="" style="height: 550px; width:650px;">
+		</div>
+		<div class="card">
+			<div class="wrapper">
+				<img style="z-index: 10;" src="./Tiles Image/wall.jpg" alt="" class="imgbg">
+			</div>
+			<p style=" z-index: 0;font-size: 20px;color: rgb(0, 0, 0);text-shadow: none;" class="title">
+				The environment refers to the 🌱surroundings in which life exists on earth.🌿 Components like
+				animals,
+				humans, sunlight,🪴 water, trees, and air make up the environment.🌲They are the earth's living and
+				🌴 non-living components.
+				Living organisms include tree 🍃,animals. take care of environment.</p>
+
+
+			
+			<!-- png image 2 -->
+
+		</div>
+		<div class="card">
+			<div class="wrapper">
+				<img style="z-index: 10;" src="./Tiles Image/wall.jpg" alt="" class="imgbg">
+			</div>
+			<p style=" z-index: 0;font-size: 20px;color: rgb(0, 0, 0);text-shadow: none;" class="title">
+				The environment refers to the 🌱surroundings in which life exists on earth.🌿 Components like
+				animals,
+				humans, sunlight,🪴 water, trees, and air make up the environment.🌲They are the earth's living and
+				🌴 non-living components.
+				Living organisms include tree 🍃,animals. take care of environment.</p>
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="page3">
+		<div class="page3-top">
+			<h4>Agenct & Venture <span>Models</span></h4>
+			<h2>Explore our services</h2>
+			<h2>& engagement models</h2>
+		</div>
+		<div class="page3-elements">
+			<div class="box">
+				<img src="./Tiles Image/T12.jpg" alt="">
+				<video autoplay muted loop src="./assets/images/Aravind Ceramics Unit II - Anuj Tiles Tanjore Factory - Grand Opening Event - Teaser I.mp4">
+				</video>
+
+			</div>
+			<div class="box">
+				<img src="./Tiles Image/T13.jpg" alt="">
+				<video autoplay muted loop src="./assets/images/Aravind Ceramics Unit II - Anuj Tiles Tanjore Factory - Grand Opening Event - Teaser I.mp4"></video>
+			</div>
+			<div class="box">
+				<img src="./Tiles Image/T14.jpg" alt="">
+				<video autoplay muted loop src="./assets/images/Aravind Ceramics Unit II - Anuj Tiles Tanjore Factory - Grand Opening Event - Teaser I.mp4"></video>
+			</div>
+		</div>
+	</div>
+
+	 <!-- --------------------------  footer ---------------------------------------- --> -->
+
+	 <footer class="footer">
+		<div class="waves">
+			<div class="wave" id="wave1"></div>
+			<div class="wave" id="wave2"></div>
+			<div class="wave" id="wave3"></div>
+			<div class="wave" id="wave4"></div>
+		</div>
+		<ul class="social-icon">
+			<li class="social-icon__item"><a class="social-icon__link" href="#">
+					<ion-icon name="logo-facebook"></ion-icon>
+				</a></li>
+			<li class="social-icon__item"><a class="social-icon__link" href="#">
+					<ion-icon name="logo-twitter"></ion-icon>
+				</a></li>
+			<li class="social-icon__item"><a class="social-icon__link" href="#">
+					<ion-icon name="logo-linkedin"></ion-icon>
+				</a></li>
+			<li class="social-icon__item"><a class="social-icon__link" href="#">
+					<ion-icon name="logo-instagram"></ion-icon>
+				</a></li>
+		</ul>
+		<ul class="menu">
+			<li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+			<li class="menu__item"><a class="menu__link" href="#">About</a></li>
+			<li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+			<li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+			<li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+		</ul>
+		<p>&copy;2024 Asif | All Rights Reserved</p>
+	</footer>
+
+
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
